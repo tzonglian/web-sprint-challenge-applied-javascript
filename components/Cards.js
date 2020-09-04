@@ -27,7 +27,6 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     const allArticles = response.data.articles
     console.log('allArcticles:', allArticles)
 
-    
     // TEST A SINGLE ARTICLE
     // 'When to Rest...' by Pupper S. Doggo
     const testArticle1 = allArticles.javascript[2] 
@@ -35,6 +34,24 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     articleInserter.append(articleMaker(testArticle1))
     // It Works!!!
 
+    // Looping through allArticles:
+    // for each tab,
+    const tabKeys = Object.keys(allArticles)
+    console.log('tabKeys: ',tabKeys)
+    for (const key of tabKeys){
+        console.log('key: ',key)
+        let tabArticlesArray = []
+        tabArticlesArray.push(allArticles.key)
+        console.log('allArticles.javascript: ',allArticles.javascript)
+        console.log('tabArticlesArray: ',tabArticlesArray) //Why Undefined???
+    // create articles
+
+    }
+
+
+
+
+    
 
     // Event Listener - console.log Headline
     const articleLinks = document.querySelectorAll('.card')

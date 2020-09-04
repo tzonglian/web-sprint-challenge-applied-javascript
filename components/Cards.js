@@ -24,14 +24,15 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     const articleInserter = document.querySelector('.cards-container')
     console.log(articleInserter)
 
-    const articleArray = response.data.articles
-    console.log('Article Array:', articleArray)
+    const allArticles = response.data.articles
+    console.log('allArcticles:', allArticles)
 
-    // tabArray.forEach(tab =>{
-    //     const tabElement = document.createElement('div')
-    //     tabElement.className = 'tab'
-    //     tabElement.textContent = tab
-    //     tabInserter.appendChild(tabElement)
+    
+    // TEST A SINGLE ARTICLE
+    // 'When to Rest...' by Pupper S. Doggo
+    const testArticle1 = allArticles.javascript[2] 
+    console.log('testArticle1: ', testArticle1)
+    articleInserter.append(articleMaker(testArticle1))
 
   })
   .catch(error =>{
@@ -59,11 +60,12 @@ function articleMaker(articleObj) {
     articleGroup.appendChild(articleAuthor)
     articleAuthor.appendChild(articleImgContainer)
     articleImgContainer.appendChild(articleImg)
+    articleImgContainer.appendChild(articleCredit)
 
     // Add Content
-    articleHeadline.textContent = `TestHeadline`
-    //articleImg.src
-    articleCredit.textContent = `By TestAuthor`
+    articleHeadline.textContent = `${articleObj.headline}`
+    articleImg.src = articleObj.authorPhoto
+    articleCredit.textContent = `By ${articleObj.authorName}`
 
     return articleGroup
 

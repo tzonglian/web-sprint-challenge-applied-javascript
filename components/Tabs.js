@@ -12,7 +12,7 @@
 
 axios.get('https://lambda-times-api.herokuapp.com/topics')
   .then(response => {
-    console.log('Response:', response)
+    console.log('Tabs Response:', response)
 
     const tabInserter = document.querySelector('.topics')
     console.log(tabInserter)
@@ -28,6 +28,8 @@ axios.get('https://lambda-times-api.herokuapp.com/topics')
     }) 
 
   })
+
+//Stretch Goal
   .catch(error =>{
-    console.log('error:', error)
+    console.log('Something Broke.  Sorry.  Error: ', error)
   })

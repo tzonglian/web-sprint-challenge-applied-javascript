@@ -27,14 +27,12 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     const allArticles = response.data.articles
     console.log('allArcticles:', allArticles)
 
-    // TEST A SINGLE ARTICLE
-    // 'When to Rest...' by Pupper S. Doggo
-    const testArticle1 = allArticles.javascript[2] 
-    console.log('testArticle1: ', testArticle1)
-    articleInserter.append(articleMaker(testArticle1))
-    // It Works!!!
-
-
+    // // TEST A SINGLE ARTICLE
+    // // 'When to Rest...' by Pupper S. Doggo
+    // const testArticle1 = allArticles.javascript[2] 
+    // console.log('testArticle1: ', testArticle1)
+    // articleInserter.append(articleMaker(testArticle1))
+    // // It Works!!!
 
     //Looping through allArticles:
 
@@ -43,7 +41,7 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     // const tabKeys = Object.keys($`{allArticles}`)
     // console.log('tabKeys: ',tabKeys)
     
-    const tabKeys = ['bootstrap','javascript','jquery','node.js','technology']
+    //const tabKeys = ['bootstrap','javascript','jquery','node.js','technology']
 
     // for (const key of tabKeys){
     //     console.log('key: ',key)
@@ -86,8 +84,10 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     })
 
   })
+
+  //Stretch Goal
   .catch(error =>{
-    console.log('error:', error)
+    console.log('Something Broke.  Sorry.  Error: ', error)
   })
 
 function articleMaker(articleObj) {

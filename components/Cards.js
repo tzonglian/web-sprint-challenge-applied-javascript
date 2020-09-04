@@ -33,6 +33,17 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     const testArticle1 = allArticles.javascript[2] 
     console.log('testArticle1: ', testArticle1)
     articleInserter.append(articleMaker(testArticle1))
+    // It Works!!!
+
+
+    // Event Listener - console.log Headline
+    const articleLinks = document.querySelectorAll('.card')
+    console.log('articleLinks: ',articleLinks)
+    Array.from(articleLinks).forEach( clicking =>{
+        clicking.addEventListener('click', () => {
+            console.log(clicking.textContent)
+        })
+    })
 
   })
   .catch(error =>{
@@ -71,9 +82,9 @@ function articleMaker(articleObj) {
 
 }
 
-
-
 //
 // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
 //
+
+
 // Use your function to create a card for each of the articles, and append each card to the DOM.

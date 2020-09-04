@@ -34,24 +34,47 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
     articleInserter.append(articleMaker(testArticle1))
     // It Works!!!
 
-    // Looping through allArticles:
-    // for each tab,
-    const tabKeys = Object.keys(allArticles)
-    console.log('tabKeys: ',tabKeys)
-    for (const key of tabKeys){
-        console.log('key: ',key)
-        let tabArticlesArray = []
-        tabArticlesArray.push(allArticles.key)
-        console.log('allArticles.javascript: ',allArticles.javascript)
-        console.log('tabArticlesArray: ',tabArticlesArray) //Why Undefined???
-    // create articles
-
-    }
 
 
+    //Looping through allArticles:
 
-
+    // Object.keys didn't work because it returned 'node' instead of 'node.js'
+    // Make sure to `node.js`, or it will assign 'node' instead
+    // const tabKeys = Object.keys($`{allArticles}`)
+    // console.log('tabKeys: ',tabKeys)
     
+    const tabKeys = ['bootstrap','javascript','jquery','node.js','technology']
+
+    // for (const key of tabKeys){
+    //     console.log('key: ',key)
+    //     console.log('tabKeys2: ',tabKeys)
+    //     let tabArticlesArray = []
+    //     console.log('allArticles.key: ',allArticles.key)
+    //     tabArticlesArray.push(allArticles['key'])
+    //     console.log('tabArticlesArray: ',tabArticlesArray) // Why undefined???
+    // }
+
+    // For each tab, create articles
+    const bootstrapArticles = allArticles.bootstrap
+    for (i=0; i<bootstrapArticles.length; i++){
+        articleInserter.appendChild(articleMaker(bootstrapArticles[i]))
+    }
+    const javascriptArticles = allArticles.javascript
+    for (i=0; i<javascriptArticles.length; i++){
+        articleInserter.appendChild(articleMaker(javascriptArticles[i]))
+    }
+    const jqueryArticles = allArticles.jquery
+    for (i=0; i<jqueryArticles.length; i++){
+        articleInserter.appendChild(articleMaker(jqueryArticles[i]))
+    }
+    const nodeJSArticles = allArticles.jquery
+    for (i=0; i<nodeJSArticles.length; i++){
+        articleInserter.appendChild(articleMaker(nodeJSArticles[i]))
+    }
+    const technologyArticles = allArticles.jquery
+    for (i=0; i<technologyArticles.length; i++){
+        articleInserter.appendChild(articleMaker(technologyArticles[i]))
+    }
 
     // Event Listener - console.log Headline
     const articleLinks = document.querySelectorAll('.card')
